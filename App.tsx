@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Work from './pages/Work';
-import School from './pages/School';
-import Interests from './pages/Interests';
-import AIEfficiency from './pages/AIEfficiency';
+import Header from './components/Header.tsx';
+import Footer from './components/Footer.tsx';
+import Home from './pages/Home.tsx';
+import Work from './pages/Work.tsx';
+import School from './pages/School.tsx';
+import Interests from './pages/Interests.tsx';
+import AIEfficiency from './pages/AIEfficiency.tsx';
 
 // ScrollToTop component to handle scroll restoration
 const ScrollToTop: React.FC = () => {

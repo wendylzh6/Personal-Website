@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { SCHOOL_PROJECTS } from '../constants';
+import { SCHOOL_PROJECTS } from '../constants.ts';
 import { FileText, ArrowUpRight } from 'lucide-react';
 
 const School: React.FC = () => {

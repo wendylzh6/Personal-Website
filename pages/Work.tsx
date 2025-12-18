@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import { PROJECTS, Project } from '../constants';
+import { PROJECTS, Project } from '../constants.ts';
 
 const RoleCard: React.FC<{ project: Project }> = ({ project }) => {
   return (

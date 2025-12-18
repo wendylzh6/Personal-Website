@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Linkedin, Mail } from 'lucide-react';
-import { CONTACT_INFO } from '../constants';
+import { CONTACT_INFO } from '../constants.ts';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);

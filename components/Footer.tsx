@@ -1,5 +1,5 @@
 import React from 'react';
-import { CONTACT_INFO } from '../constants';
+import { CONTACT_INFO } from '../constants.ts';
 import { Linkedin, Mail, ArrowUpRight } from 'lucide-react';
 
 const Footer: React.FC = () => {
