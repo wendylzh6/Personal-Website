@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Zap, Copy, ExternalLink, ChevronDown, ChevronUp, Check } from 'lucide-react';
+import { Sparkles, Zap, Copy, ExternalLink, ChevronDown, ChevronUp, Check, Code, BarChart2, ArrowUpRight } from 'lucide-react';
 
 const PromptCard: React.FC<{ 
   prompt: { title: string; category: string; description: string; content: string } 
@@ -61,6 +61,16 @@ const PromptCard: React.FC<{
 };
 
 const AIEfficiency: React.FC = () => {
+  const builtTools = [
+    {
+      name: "Tweet Content Analyzer",
+      description: "A strategic analytics tool to evaluate tweet performance and content patterns, helping brands accelerate data-driven decision making.",
+      link: "https://tweet-analysis-zy9m.vercel.app/",
+      icon: <BarChart2 size={24} />
+    }
+    // Add more tools here in the future
+  ];
+
   const prompts = [
     {
       title: "Source and Explore New Companies",
@@ -152,16 +162,59 @@ Output Requirements
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         
-        {/* Prompts Section */}
+        {/* Main Content Column */}
         <div className="lg:col-span-8">
-          <h2 className="text-2xl font-display font-bold mb-8 flex items-center gap-2 uppercase tracking-wide">
-            <Zap size={24} className="text-stone-400" />
-            Prompt Library
-          </h2>
-          <div className="space-y-8">
-            {prompts.map((prompt, idx) => (
-              <PromptCard key={idx} prompt={prompt} />
-            ))}
+          
+          {/* Engineering & Tools Section */}
+          <div className="mb-16">
+            <h2 className="text-2xl font-display font-bold mb-8 flex items-center gap-2 uppercase tracking-wide">
+              <Code size={24} className="text-stone-400" />
+              Engineering & Tools
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {builtTools.map((tool, idx) => (
+                <a 
+                  key={idx}
+                  href={tool.link}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-white border border-stone-200 p-8 rounded-sm hover:shadow-lg transition-all duration-300 group block flex flex-col h-full"
+                >
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="p-3 bg-stone-100 rounded-sm text-stone-900 group-hover:bg-stone-900 group-hover:text-white transition-colors duration-300">
+                      {tool.icon}
+                    </div>
+                    <ExternalLink size={18} className="text-stone-300 group-hover:text-stone-900 transition-colors" />
+                  </div>
+                  
+                  <div className="flex-grow">
+                    <h3 className="text-xl font-display font-bold text-stone-900 mb-3 group-hover:text-stone-600 transition-colors">
+                      {tool.name}
+                    </h3>
+                    <p className="text-stone-500 text-sm font-medium leading-relaxed mb-6">
+                      {tool.description}
+                    </p>
+                  </div>
+
+                  <span className="text-[10px] uppercase tracking-widest font-bold text-stone-900 flex items-center gap-2 border-b border-stone-200 pb-1 self-start group-hover:border-stone-900 transition-all">
+                    Launch Tool <ArrowUpRight size={10} />
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Prompt Library Section */}
+          <div>
+            <h2 className="text-2xl font-display font-bold mb-8 flex items-center gap-2 uppercase tracking-wide">
+              <Zap size={24} className="text-stone-400" />
+              Prompt Library
+            </h2>
+            <div className="space-y-8">
+              {prompts.map((prompt, idx) => (
+                <PromptCard key={idx} prompt={prompt} />
+              ))}
+            </div>
           </div>
         </div>
 
