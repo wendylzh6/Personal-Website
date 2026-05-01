@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Zap, Copy, ExternalLink, ChevronDown, ChevronUp, Check, Code, BarChart2, ArrowUpRight } from 'lucide-react';
+import { Sparkles, Zap, Copy, ExternalLink, ChevronDown, ChevronUp, Check, Code, BarChart2, ArrowUpRight, Network } from 'lucide-react';
 
 const PromptCard: React.FC<{ 
   prompt: { title: string; category: string; description: string; content: string } 
@@ -67,8 +67,13 @@ const AIEfficiency: React.FC = () => {
       description: "A strategic analytics tool to evaluate tweet performance and content patterns, helping brands accelerate data-driven decision making.",
       link: "https://tweet-analysis-zy9m.vercel.app/",
       icon: <BarChart2 size={24} />
+    },
+    {
+      name: "AI Sphere",
+      description: "An interactive 3D network visualization mapping relationships among the top 51 AI influencers on X and LinkedIn, with sentiment analysis and an AI chatbot to guide exploration.",
+      link: "https://ai-sphere-indol.vercel.app/",
+      icon: <Network size={24} />
     }
-    // Add more tools here in the future
   ];
 
   const prompts = [
