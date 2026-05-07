@@ -174,7 +174,7 @@ Output Requirements
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         
         {/* Main Content Column */}
-        <div className="lg:col-span-8">
+        <div className="lg:col-span-9">
           
           {/* Engineering & Tools Section */}
           <div className="mb-16">
@@ -230,7 +230,7 @@ Output Requirements
         </div>
 
         {/* Tools Sidebar */}
-        <div className="lg:col-span-4">
+        <div className="lg:col-span-3">
           <div className="sticky top-32">
             <h2 className="text-2xl font-display font-bold mb-8 uppercase tracking-wide">My Resources</h2>
             <ul className="space-y-4">
