@@ -182,7 +182,7 @@ Output Requirements
               <Code size={24} className="text-stone-400" />
               Engineering & Tools
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {builtTools.map((tool, idx) => (
                 <a 
                   key={idx}
