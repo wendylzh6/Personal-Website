@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Zap, Copy, ExternalLink, ChevronDown, ChevronUp, Check, Code, BarChart2, ArrowUpRight, Network } from 'lucide-react';
+import { Sparkles, Zap, Copy, ExternalLink, ChevronDown, ChevronUp, Check, Code, BarChart2, ArrowUpRight, Network, Newspaper } from 'lucide-react';
 
 const PromptCard: React.FC<{ 
   prompt: { title: string; category: string; description: string; content: string } 
@@ -73,6 +73,12 @@ const AIEfficiency: React.FC = () => {
       description: "An interactive 3D network visualization mapping relationships among the top 51 AI influencers on X and LinkedIn, with sentiment analysis and an AI chatbot to guide exploration.",
       link: "https://ai-sphere-indol.vercel.app/",
       icon: <Network size={24} />
+    },
+    {
+      name: "Video to Newsletter",
+      description: "Transforms YouTube interviews and podcast transcripts into publication-ready newsletter drafts with tone controls, per-section regeneration, and export to Markdown or Gmail.",
+      link: "https://github.com/wendylzh6/ai-newsletter-gen",
+      icon: <Newspaper size={24} />
     }
   ];
 
