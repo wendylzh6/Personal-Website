@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Zap, Copy, ExternalLink, ChevronDown, ChevronUp, Check, Code, BarChart2, ArrowUpRight, Network, Newspaper } from 'lucide-react';
+import { Sparkles, Zap, Copy, ExternalLink, ChevronDown, ChevronUp, Check, Code, BarChart2, ArrowUpRight, Network, Newspaper, Star } from 'lucide-react';
 
 const PromptCard: React.FC<{ 
   prompt: { title: string; category: string; description: string; content: string } 
@@ -79,6 +79,12 @@ const AIEfficiency: React.FC = () => {
       description: "Transforms YouTube interviews and podcast transcripts into publication-ready newsletter drafts with tone controls, per-section regeneration, and export to Markdown or Gmail.",
       link: "https://github.com/wendylzh6/ai-newsletter-gen",
       icon: <Newspaper size={24} />
+    },
+    {
+      name: "Review Intelligence",
+      description: "Aggregates customer reviews to surface recurring pain points and auto-generates personalized outreach emails — turning raw feedback into targeted sales enablement.",
+      link: "https://review-intelligence-delta.vercel.app/",
+      icon: <Star size={24} />
     }
   ];
 
@@ -182,7 +188,7 @@ Output Requirements
               <Code size={24} className="text-stone-400" />
               Engineering & Tools
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {builtTools.map((tool, idx) => (
                 <a 
                   key={idx}
