@@ -20,7 +20,7 @@ const Interests: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="pt-24">
       
       {/* Hyrox Section - Strict 4-Color Palette for UI, but Colorful Imagery */}
       <section className="bg-stone-900 text-white py-24 px-6 md:px-12 overflow-hidden relative">
