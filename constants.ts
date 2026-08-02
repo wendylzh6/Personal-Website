@@ -27,6 +27,19 @@ export interface SchoolProject {
   pdfUrl: string;
 }
 
+export interface Section {
+  id: string;
+  name: string;
+}
+
+// Single-page section order
+export const SECTIONS: Section[] = [
+  { id: "efficiency", name: "Efficiency" },
+  { id: "project", name: "Project" },
+  { id: "work", name: "Work" },
+  { id: "interest", name: "Interest" }
+];
+
 // Data
 export const PROJECTS: Project[] = [
   {
