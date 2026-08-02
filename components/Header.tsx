@@ -49,6 +49,7 @@ const Header: React.FC = () => {
     event.preventDefault();
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.history.replaceState(null, '', window.location.pathname);
   };
 
   // Honour a deep link such as /#work on first load
@@ -64,6 +65,7 @@ const Header: React.FC = () => {
   }`;
 
   return (
+    <>
     <header className={headerClass}>
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Name / Logo */}
@@ -120,9 +122,13 @@ const Header: React.FC = () => {
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Mobile Nav Overlay */}
+      </div>
+    </header>
+
+      {/* Mobile Nav Overlay — sibling of <header> so `fixed` resolves against the
+          viewport rather than the backdrop-filtered header */}
         <div
-          className={`fixed inset-0 bg-white flex flex-col items-center justify-center space-y-8 transition-transform duration-500 ease-out md:hidden ${
+          className={`fixed inset-0 z-40 bg-white flex flex-col items-center justify-center space-y-8 transition-transform duration-500 ease-out md:hidden ${
             mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
@@ -155,8 +161,7 @@ const Header: React.FC = () => {
             </a>
           </div>
         </div>
-      </div>
-    </header>
+    </>
   );
 };
 
