@@ -19,9 +19,6 @@ const Intro: React.FC = () => {
           I do my best work in fast-paced, collaborative teams — combining analytical thinking,
           creativity, and execution.
         </p>
-        <p>
-          The throughline: turning ideas into measurable impact.
-        </p>
       </div>
     </section>
   );
