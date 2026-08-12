@@ -164,7 +164,7 @@ Output Requirements
   ];
 
   return (
-    <div className="pt-8 pb-24 max-w-7xl mx-auto px-6 md:px-12">
+    <div className="pt-10 pb-28 max-w-7xl mx-auto px-6 md:px-12">
       <div className="mb-16 border-b border-stone-200 pb-8">
         <div className="flex items-center gap-3 text-stone-500 mb-4">
           <Sparkles size={20} />
