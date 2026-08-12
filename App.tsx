@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/Header.tsx';
 import Footer from './components/Footer.tsx';
+import Intro from './components/Intro.tsx';
 import Work from './pages/Work.tsx';
 import School from './pages/School.tsx';
 import Interests from './pages/Interests.tsx';
@@ -12,6 +13,7 @@ const App: React.FC = () => {
     <div className="min-h-screen flex flex-col font-sans text-stone-900 bg-stone-50">
       <Header />
       <main className="flex-grow">
+        <Intro />
         <section id={SECTIONS[0].id} className="scroll-mt-24">
           <AIEfficiency />
         </section>
