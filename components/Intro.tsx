@@ -8,18 +8,19 @@ const Intro: React.FC = () => {
       </h1>
       <div className="space-y-3 text-stone-600 text-base md:text-lg leading-relaxed max-w-3xl font-medium border-l-2 border-stone-200 pl-6">
         <p>
-          Yale SOM MBA with five years across brand, digital product, and strategy at L'Oréal,
-          Ruder Finn, and data.ai — turning market data into go-to-market decisions.
+          I'm a digital strategy and growth professional working across beauty, technology,
+          media, and entrepreneurship.
         </p>
         <p>
-          I build with AI daily, shipping small tools and prompt systems that compress research
-          and analysis from days into hours.
+          I've led cross-functional digital initiatives at L'Oréal, built data-driven growth
+          strategies, managed global projects, and run content, community, and event programs.
         </p>
         <p>
-          Outside work: Hyrox racing and 35mm film — endurance and patience, in two forms.
+          I do my best work in fast-paced, collaborative teams — combining analytical thinking,
+          creativity, and execution.
         </p>
         <p>
-          Next: a product or growth strategy role where consumer insight and AI leverage meet.
+          The throughline: turning ideas into measurable impact.
         </p>
       </div>
     </section>
