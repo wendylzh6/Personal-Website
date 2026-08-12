@@ -4,7 +4,7 @@ import { FileText, ArrowUpRight } from 'lucide-react';
 
 const School: React.FC = () => {
   return (
-    <div className="pt-24 pb-24 max-w-7xl mx-auto px-6 md:px-12">
+    <div className="pt-10 pb-28 max-w-7xl mx-auto px-6 md:px-12">
       <div className="mb-20 border-b border-stone-200 pb-10">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold tracking-tight mb-4 uppercase">Projects</h1>
         <p className="text-stone-500 text-lg max-w-2xl font-medium leading-relaxed">

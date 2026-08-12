@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header.tsx';
 import Footer from './components/Footer.tsx';
 import Intro from './components/Intro.tsx';
+import SectionShell from './components/SectionShell.tsx';
 import Work from './pages/Work.tsx';
 import School from './pages/School.tsx';
 import Interests from './pages/Interests.tsx';
@@ -14,18 +15,18 @@ const App: React.FC = () => {
       <Header />
       <main className="flex-grow">
         <Intro />
-        <section id={SECTIONS[0].id} className="scroll-mt-24">
+        <SectionShell id={SECTIONS[0].id} index={1} label={SECTIONS[0].name} tone="light">
           <AIEfficiency />
-        </section>
-        <section id={SECTIONS[1].id} className="scroll-mt-24">
+        </SectionShell>
+        <SectionShell id={SECTIONS[1].id} index={2} label={SECTIONS[1].name} tone="muted">
           <School />
-        </section>
-        <section id={SECTIONS[2].id} className="scroll-mt-24">
+        </SectionShell>
+        <SectionShell id={SECTIONS[2].id} index={3} label={SECTIONS[2].name} tone="light">
           <Work />
-        </section>
-        <section id={SECTIONS[3].id} className="scroll-mt-24">
+        </SectionShell>
+        <SectionShell id={SECTIONS[3].id} index={4} label={SECTIONS[3].name} tone="muted">
           <Interests />
-        </section>
+        </SectionShell>
       </main>
       <Footer />
     </div>
