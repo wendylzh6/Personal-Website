@@ -1,73 +1,92 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, Linkedin, Mail } from 'lucide-react';
+import { Linkedin, Mail, Menu, X } from 'lucide-react';
 import { CONTACT_INFO } from '../constants.ts';
+
+const navLinks = [
+  { name: 'Home', id: 'home' },
+  { name: 'Work', id: 'work' },
+  { name: 'Work Sample', id: 'projects' },
+  { name: 'Project', id: 'impact' },
+  { name: 'Interests', id: 'interests' },
+];
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [location]);
+    const observers: IntersectionObserver[] = [];
+    navLinks.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
+        { rootMargin: '-40% 0px -55% 0px' }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach(o => o.disconnect());
+  }, []);
 
-  const navLinks = [
-    { name: 'Work', path: '/work' },
-    { name: 'Projects', path: '/school' },
-    { name: 'Interests', path: '/interests' },
-    { name: 'Efficiency', path: '/ai-resources' },
-  ];
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setMobileMenuOpen(false);
+  };
 
   const headerClass = `fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${
-    isScrolled || mobileMenuOpen ? 'bg-white/90 backdrop-blur-md border-b border-stone-100 py-4' : 'bg-transparent py-6'
+    isScrolled || mobileMenuOpen
+      ? 'bg-white/90 backdrop-blur-md border-b border-stone-100 py-4'
+      : 'bg-transparent py-6'
   }`;
 
   return (
     <header className={headerClass}>
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        {/* Name / Logo */}
-        <NavLink to="/" className="text-xl tracking-tighter font-display font-bold text-stone-900 hover:opacity-70 transition-opacity z-50 uppercase">
+
+        {/* Name */}
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="text-xl tracking-tighter font-display font-bold text-stone-900 hover:opacity-70 transition-opacity uppercase"
+        >
           Wendy Liu
-        </NavLink>
+        </button>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-8 items-center">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              className={({ isActive }) =>
-                `text-xs uppercase tracking-widest font-bold transition-colors duration-300 ${
-                  isActive ? 'text-stone-900 border-b-2 border-stone-900 pb-1' : 'text-stone-400 hover:text-stone-900'
-                }`
-              }
+          {navLinks.map(({ name, id }) => (
+            <button
+              key={id}
+              onClick={() => scrollTo(id)}
+              className={`text-xs uppercase tracking-widest font-bold transition-colors duration-300 ${
+                activeSection === id
+                  ? 'text-stone-900 border-b-2 border-stone-900 pb-1'
+                  : 'text-stone-400 hover:text-stone-900'
+              }`}
             >
-              {link.name}
-            </NavLink>
+              {name}
+            </button>
           ))}
           <div className="flex items-center gap-5 ml-4 border-l border-stone-200 pl-8">
             <a
               href={CONTACT_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-stone-400 hover:text-stone-900 transition-colors duration-300"
+              className="text-stone-400 hover:text-stone-900 transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin size={18} />
             </a>
             <a
               href={`mailto:${CONTACT_INFO.email}`}
-              className="text-stone-400 hover:text-stone-900 transition-colors duration-300"
+              className="text-stone-400 hover:text-stone-900 transition-colors"
               aria-label="Email"
             >
               <Mail size={18} />
@@ -89,34 +108,25 @@ const Header: React.FC = () => {
             mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              className={({ isActive }) =>
-                `text-3xl font-display font-extrabold uppercase tracking-tighter ${isActive ? 'text-stone-900' : 'text-stone-300'}`
-              }
+          {navLinks.map(({ name, id }) => (
+            <button
+              key={id}
+              onClick={() => scrollTo(id)}
+              className="text-3xl font-display font-extrabold uppercase tracking-tighter text-stone-900"
             >
-              {link.name}
-            </NavLink>
+              {name}
+            </button>
           ))}
           <div className="flex gap-8 mt-12 pt-8 border-t border-stone-100">
-            <a
-              href={CONTACT_INFO.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-stone-400 hover:text-stone-900 transition-colors"
-            >
+            <a href={CONTACT_INFO.linkedin} target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-stone-900 transition-colors">
               <Linkedin size={28} />
             </a>
-            <a
-              href={`mailto:${CONTACT_INFO.email}`}
-              className="text-stone-400 hover:text-stone-900 transition-colors"
-            >
+            <a href={`mailto:${CONTACT_INFO.email}`} className="text-stone-400 hover:text-stone-900 transition-colors">
               <Mail size={28} />
             </a>
           </div>
         </div>
+
       </div>
     </header>
   );

@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         <div>
           <h3 className="text-xl font-medium tracking-tight mb-2">Wendy Liu</h3>
           <p className="text-stone-500 text-sm whitespace-nowrap overflow-hidden text-ellipsis">
-            Crafting digital products with strategy and intention.
+            Growth marketer. Builder. Always testing.
           </p>
         </div>
 
