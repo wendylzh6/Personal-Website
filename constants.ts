@@ -196,6 +196,6 @@ export const SCHOOL_PROJECTS: SchoolProject[] = [
 ];
 
 export const CONTACT_INFO = {
-  email: "lzhwendyi@gmail.com",
+  email: "lzhwendy@gmail.com",
   linkedin: "https://www.linkedin.com/in/wendy-liu-211b651b0/"
 };
